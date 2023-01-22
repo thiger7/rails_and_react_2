@@ -1,5 +1,5 @@
 import React from 'react'
-import { Switch, Route, Link } from 'react-router-dom'
+import { Routes, Route, Link } from 'react-router-dom'
 import styled from 'styled-components'
 import AddTodo from './AddTodo'
 import TodoList from './TodoList'
@@ -10,7 +10,7 @@ const Nabvar = styled.nav`
   background: #dbfffe;
   min-height: 8vh;
   display: flex;
-  justify-content: space-arround;
+  justify-content: space-around;
   align-items: center;
 `
 
@@ -63,6 +63,13 @@ function App() {
           </NavItem>
         </NavItems>
       </Nabvar>
+      <Wrapper>
+        <Routes>
+          <Route exact path="/todos" element={<TodoList />} />
+          <Route exact path="/todos/new" element={<AddTodo />} />
+          <Route path="/todos/:id/edit" element={<EditTodo />} />
+        </Routes>
+      </Wrapper>
     </>
   )
 }
